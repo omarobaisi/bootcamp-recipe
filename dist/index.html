@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/dcd23d6329.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Indie+Flower&family=Inter:wght@200;300;400;500;600&family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="searchRecipe">
+      <input id="ingredientInput" type="text" placeholder="Ingredient" />
+      <button id="searchRecipeButton">Search for recipes</button>
+    </div>
+    <div id="recipes-container"></div>
+    <script id="recipes-template" type="text/x-handlebars-template">
+      {{#each item}}
+        <div class="recipe" id="{{@index}}">
+          <div class="recipeTitleDiv"><a class="recipeTitle" href="{{href}}"><h1
+              >{{title}}</h1></a></div>
+          <div><img class="recipeImg" src="{{thumbnail}}" alt="" /></div>
+          <div class="ingredientsWord">Ingredients</div>
+          <div class="recipeIngredients">
+            {{#each ingredients}}
+              <div class="recipeIngredient"><i
+                  class="fa-solid fa-check"
+                ></i>{{this}}</div>
+            {{/each}}
+          </div>
+        </div>
+      {{/each}}
+    </script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./recipes.js"></script>
+    <script src="./renderer.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
